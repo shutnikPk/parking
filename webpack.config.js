@@ -5,8 +5,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const PORT= 4000;
+
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
+let mode = isProd?'production':'development'; 
 
 const filename = ext=>isDev? `bundle.${ext}`: `bundle.[hash].${ext}`
 
@@ -15,7 +18,10 @@ const jsLoaders = ()=>{
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env']
+        presets: [
+          '@babel/preset-env',
+        '@babel/preset-react'
+      ]
       }
     }
   ]
@@ -29,8 +35,8 @@ const jsLoaders = ()=>{
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    mode: 'development',
-    entry: './index.js',
+    mode: mode,
+    entry: ["@babel/polyfill",'./index.jsx'],
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
@@ -43,7 +49,7 @@ module.exports = {
     },
     devtool: isDev? 'source-map' : false,
     devServer:{
-      port: 4000,
+      port: PORT,
       hot: isDev
     },
     plugins: [
@@ -66,7 +72,7 @@ module.exports = {
           }),        
     ],
     optimization: {
-        minimize: isProd, //false for dev
+        minimize: isProd,
         minimizer: [new TerserPlugin()],
     },
     module: {
@@ -80,9 +86,20 @@ module.exports = {
               ],
             },
             {
-                test: /\.m?js$/,
+                test: /\.js$|jsx/,
                 exclude: /(node_modules|bower_components)/,
                 use: jsLoaders()
+              },
+              {
+                test: /\.(jpg|jpeg|png|svg)/,
+                use:
+                {
+                  loader: 'file-loader',
+                  options:
+                  {
+                    name: 'dirname/[contenthash].[ext]',
+                  }
+                }
               }
           ],
       },
