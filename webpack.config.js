@@ -9,7 +9,9 @@ const PORT= 4000;
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
-let mode = isProd?'production':'development'; 
+const mode=isProd?'production':'development';
+
+console.log(mode)
 
 const filename = ext=>isDev? `bundle.${ext}`: `bundle.[hash].${ext}`
 
@@ -35,11 +37,12 @@ const jsLoaders = ()=>{
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    mode: mode,
+    mode:'production',
     entry: ["@babel/polyfill",'./index.jsx'],
     output: {
         filename: filename('js'),
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     resolve:{
         extensions:['.js', '.jsx', '.json'],
@@ -95,10 +98,6 @@ module.exports = {
                 use:
                 {
                   loader: 'file-loader',
-                  options:
-                  {
-                    name: 'dirname/[contenthash].[ext]',
-                  }
                 }
               }
           ],
