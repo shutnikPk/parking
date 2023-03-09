@@ -5,13 +5,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const PORT= 4000;
+const PORT= process.env.npm_config_port||4000;
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.mode === 'production'
 const isDev = !isProd
 const mode=isProd?'production':'development';
 
-console.log(mode)
+
+// console.log(process.env.npm_config_port)
+// console.log(process.env.mode)
+// console.log(mode)
 
 const filename = ext=>isDev? `bundle.${ext}`: `bundle.[hash].${ext}`
 
@@ -35,9 +38,12 @@ const jsLoaders = ()=>{
  return loaders
 }
 
-module.exports = {
+module.exports = env=>{
+  console.log(env)
+  console.log(process.env)
+  return{
     context: path.resolve(__dirname, 'src'),
-    mode:'production',
+    mode,
     entry: ["@babel/polyfill",'./index.jsx'],
     output: {
         filename: filename('js'),
@@ -95,11 +101,11 @@ module.exports = {
               },
               {
                 test: /\.(jpg|jpeg|png|svg)/,
-                use:
-                {
-                  loader: 'file-loader',
+                loader: 'file-loader',
+                options:{
+                    name: '[name].[ext]'
                 }
               }
           ],
       },
-}
+}}

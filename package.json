@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
     "build": "webpack",
-    "prod": "npm run build && cross-env NODE_ENV='production' && start"
+    "prod": "npm run build && cross-env NODE_ENV='production'"
   },
   "keywords": [],
   "author": "shutnikPk",
