@@ -12,9 +12,9 @@ const isDev = !isProd
 const mode=isProd?'production':'development';
 
 
-// console.log(process.env.npm_config_port)
-// console.log(process.env.mode)
-// console.log(mode)
+console.log(process.env.npm_config_port)
+console.log(process.env.mode)
+console.log(mode)
 
 const filename = ext=>isDev? `bundle.${ext}`: `bundle.[hash].${ext}`
 
