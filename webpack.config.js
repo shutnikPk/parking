@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = env=>{
   const port= env.port||4000
@@ -18,11 +19,7 @@ module.exports = env=>{
     },
     resolve:{
         extensions:['.js', '.jsx', '.json'],
-        alias:{
-            '@': path.resolve(__dirname, 'src')
-        }
     },
-    devtool: isDev? 'source-map' : false,
     devServer:{
       port: port,
       hot: isDev
@@ -35,14 +32,15 @@ module.exports = env=>{
           new webpack.EnvironmentPlugin({
             'PORT': port,
             'NODE_ENV': mode,
-          })
+          }),
+          new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
             {
-              test: /\.s[ac]ss$/i,
+              test:/\.(s*)css$/,
               use: [
-                'style-loader',
+                MiniCssExtractPlugin.loader,
                 'css-loader',
                 'sass-loader',
               ],
