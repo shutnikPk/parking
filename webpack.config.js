@@ -13,14 +13,15 @@ module.exports = env => {
     mode: NODE_ENV,
     entry: './index.jsx',
     output: {
-      filename: isDev ? 'bundle.[hash].js' : 'bundle.js',
+      filename: 'bundle.[hash].js',
       path: path.resolve(__dirname, 'dist'),
-      assetModuleFilename: isDev ? 'assets/[hash][ext]' : 'assets/[name][ext]',
+      assetModuleFilename: 'assets/[name][hash][ext]',
       clean: true,
     },
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
     },
+    devtool: isDev ? 'source-map' : false,
     devServer: {
       port: PORT,
       hot: isDev
