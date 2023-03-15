@@ -4,10 +4,11 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const DEV_CONFIG = require('./webpack.dev');
-const PROD_CONFIG = require('./webpack.prod');
+
 
 module.exports = env => {
+    const DEV_CONFIG = require('./webpack.dev');
+    const PROD_CONFIG = require('./webpack.prod');
 
     const PORT = env.PORT || 4000
     const NODE_ENV = env.MODE ? env.MODE : 'development'
