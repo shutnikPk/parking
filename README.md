@@ -22,13 +22,13 @@ npm i
 Script to build app:
 
 ```sh
-"build" 
+"npm run build" 
 ```
 
 Script to start app:
 
 ```sh
-"start" 
+"npm start" 
 ```
 
 Start with custom port(6060):
@@ -40,7 +40,7 @@ Start with custom port(6060):
 Script to run app in prod mode:
 
 ```sh
-"prod"
+"npm run prod"
 ```
 
 ## License
