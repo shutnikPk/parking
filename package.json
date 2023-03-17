@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.common.js",
-    "build": "webpack --env MODE=production --config webpack.common.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --env MODE=production --config webpack.prod.js",
     "prod": "npm run build && npx serve dist"
   },
   "keywords": [],
@@ -30,10 +30,10 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0",
-    "webpack-notifier": "^1.15.0"
+    "webpack-notifier": "^1.15.0",    
+    "@babel/polyfill": "^7.12.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

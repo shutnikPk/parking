@@ -1,21 +1,13 @@
-const { merge } = require('webpack-merge');
 const { DefinePlugin } = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-
-
 module.exports = env => {
-    const DEV_CONFIG = require('./webpack.dev');
-    const PROD_CONFIG = require('./webpack.prod');
-
     const PORT = env.PORT || 4000
     const NODE_ENV = env.MODE ? env.MODE : 'development'
-    const isProd = NODE_ENV === 'production'
-    const isDev = !isProd
 
-    const COMMON_CONFIG = {
+    return {
         context: path.resolve(__dirname, 'src'),
         entry: './index.jsx',
         output: {
@@ -29,14 +21,13 @@ module.exports = env => {
         },
         devServer: {
             port: PORT,
-            hot: isDev
+            hot: true
         },
         plugins: [
             new HtmlWebpackPlugin({
                 template: 'index.html',
                 title: 'Parking',
-            }),
-            new DefinePlugin({
+            }), new DefinePlugin({
                 'process.env': JSON.stringify({
                     'PORT': PORT,
                     'NODE_ENV': NODE_ENV,
@@ -73,10 +64,4 @@ module.exports = env => {
             ],
         },
     }
-
-    if (isDev) {
-        return merge(DEV_CONFIG, COMMON_CONFIG)
-    }
-
-    return merge(PROD_CONFIG, COMMON_CONFIG)
 }
