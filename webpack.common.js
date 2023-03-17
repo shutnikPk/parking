@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = env => {
-    const PORT = env.PORT || 4000
     const NODE_ENV = env.MODE ? env.MODE : 'development'
+    const PORT = env?.PORT
 
     return {
         context: path.resolve(__dirname, 'src'),
@@ -18,10 +18,6 @@ module.exports = env => {
         },
         resolve: {
             extensions: ['.js', '.jsx', '.json'],
-        },
-        devServer: {
-            port: PORT,
-            hot: true
         },
         plugins: [
             new HtmlWebpackPlugin({
