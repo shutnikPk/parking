@@ -1,0 +1,17 @@
+.wrap{
+    width: 100vw;
+    height: 100vh;
+    &--ico{
+      display: inline-block;
+      width: 18px;
+    }
+}
+.wrap__light {
+  background-color: #fafafa;
+  color: black;
+}
+.wrap__dark {
+    background-color: #525DAB;
+    color: white;
+}
+  
