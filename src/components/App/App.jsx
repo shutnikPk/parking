@@ -20,8 +20,8 @@ function App() {
         <div className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
             {isLightTheme ? 'Good Morgin' : 'Good Night'}
             <span className='theme--icon'>{isLightTheme ? <Sun /> : <Moon style={{ fill: "#fafafa" }} />}</span>
-            < input type='checkbox' onChange={toggleTheme}></input >
-        </div >
+            <input type='checkbox' onChange={toggleTheme}></input>
+        </div>
     );
 }
 
