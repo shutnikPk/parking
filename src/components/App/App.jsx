@@ -6,22 +6,22 @@ import Moon from './half-moon.svg'
 function App() {
 
     const [isLightTheme, setIsLightTheme] = useState(
-        localStorage.getItem("isLightTheme") || false
+        JSON.parse(localStorage.getItem("isLightTheme"))
     )
-    if (!localStorage.isLightTheme) {
-        localStorage.setItem("isLightTheme", true)
-    }
+    console.log(isLightTheme)
+    console.log(isLightTheme ? 'Good Morgin' : 'Good Night')
     const toggleTheme = () => {
         localStorage.setItem("isLightTheme", !isLightTheme)
         setIsLightTheme(!isLightTheme)
     }
-
     return (
+
         <div className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
             {isLightTheme ? 'Good Morgin' : 'Good Night'}
             <span className='theme--icon'>{isLightTheme ? <Sun /> : <Moon style={{ fill: "#fafafa" }} />}</span>
-            <input type='checkbox' onChange={toggleTheme}></input>
+            <input checked={isLightTheme} type='checkbox' onChange={toggleTheme}></input>
         </div>
+
     );
 }
 
