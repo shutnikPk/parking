@@ -9,7 +9,7 @@ function App() {
     return (
         <div className={`wrap wrap__${isMornig ? 'light' : 'dark'}`} >
             {text}
-            <span className='wrap--ico'>{isMornig ? <Sun /> : <Moon />}</span>
+            <span className='wrap--icon'>{isMornig ? <Sun /> : <Moon />}</span>
             < input type='checkbox' onChange={() => { setIsMorning(!isMornig) }}></input >
         </div >
     );
