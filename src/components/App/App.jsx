@@ -1,7 +1,7 @@
 import './App.scss'
 import React, { useState } from 'react';
-import Sun from './Assets/sun.svg'
-import Moon from './Assets/half-moon.svg'
+import Sun from './sun.svg'
+import Moon from './half-moon.svg'
 
 function App() {
 
