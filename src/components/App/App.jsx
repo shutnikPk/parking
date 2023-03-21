@@ -4,13 +4,23 @@ import Sun from './Assets/sun.svg'
 import Moon from './Assets/half-moon.svg'
 
 function App() {
-    const [isMornig, setIsMorning] = useState(true)
-    const text = isMornig ? 'Good Morgin' : 'Good Night'
+
+    const [isLightTheme, setIsLightTheme] = useState(
+        localStorage.getItem("isLightTheme") || false
+    )
+    if (!localStorage.isLightTheme) {
+        localStorage.setItem("isLightTheme", true)
+    }
+    const toggleTheme = () => {
+        localStorage.setItem("isLightTheme", !isLightTheme)
+        setIsLightTheme(!isLightTheme)
+    }
+
     return (
-        <div className={`wrap wrap__${isMornig ? 'light' : 'dark'}`} >
-            {text}
-            <span className='wrap--icon'>{isMornig ? <Sun /> : <Moon />}</span>
-            < input type='checkbox' onChange={() => { setIsMorning(!isMornig) }}></input >
+        <div className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
+            {isLightTheme ? 'Good Morgin' : 'Good Night'}
+            <span className='theme--icon'>{isLightTheme ? <Sun /> : <Moon />}</span>
+            < input type='checkbox' onChange={toggleTheme}></input >
         </div >
     );
 }
