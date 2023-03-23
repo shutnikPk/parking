@@ -13,7 +13,7 @@ let isLightTheme = JSON.parse(localStorage.getItem("isLightTheme"))
 
 const setUserTheme = (theme) => {
     localStorage.setItem("isLightTheme", !theme)
-    isLightTheme = !isLightTheme
+    isLightTheme = JSON.parse(localStorage.getItem("isLightTheme"))
 }
 
 root.render(
