@@ -28,3 +28,7 @@ $coloe-light: #fafafa;
 .theme__light {
   @include light-theme
 }
+
+.moon {
+  fill: $coloe-light;
+}
