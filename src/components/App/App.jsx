@@ -23,6 +23,7 @@ function App() {
                 type='checkbox'
                 onChange={onChangeTheme}>
             </input>
+            <p>Hello World!</p>
         </div>
     );
 }
