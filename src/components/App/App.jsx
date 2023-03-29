@@ -3,30 +3,6 @@ import React, { useState } from 'react';
 import Sun from './sun.svg'
 import Moon from './half-moon.svg'
 
-// class LocalStorageMock {
-//     constructor() {
-//         this.store = {};
-//     }
-
-//     clear() {
-//         this.store = {};
-//     }
-
-//     getItem(key) {
-//         return this.store[key] || null;
-//     }
-
-//     setItem(key, value) {
-//         this.store[key] = String(value);
-//     }
-
-//     removeItem(key) {
-//         delete this.store[key];
-//     }
-// }
-
-// global.localStorage = new LocalStorageMock;
-
 const theme = localStorage.getItem('isLightTheme') === null ?
     true : JSON.parse(localStorage.getItem('isLightTheme'))
 
