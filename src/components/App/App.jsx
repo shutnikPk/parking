@@ -18,7 +18,7 @@ export default () => {
     return (
         <div className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
             {isLightTheme ? 'Good Morgin' : 'Good Night'}
-            {/* <span className='theme--icon'>{isLightTheme ? <Sun /> : <Moon className='moon' />}</span> */}
+            {isLightTheme ? <Sun className='theme--icon' /> : <Moon className='theme--icon moon' />}
             <input checked={isLightTheme}
                 type='checkbox'
                 onChange={onChangeTheme}>
