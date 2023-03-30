@@ -8,6 +8,7 @@ module.exports = {
     ],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|svg|ttf|woff|woff2)$': 'identity-obj-proxy',
+        '\\.(jpg|jpeg|png|ttf|woff|woff2)$': 'identity-obj-proxy',
+        '\\.svg$': '<rootDir>/src/utils/mockSvg.js'
     }
 }
