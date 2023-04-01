@@ -29,6 +29,5 @@ describe('change theme', () => {
         expect(container.classList.contains('theme__light'))
         fireEvent.click(checkbox)
         expect(container.classList.contains('theme__light'))
-
     })
 })
