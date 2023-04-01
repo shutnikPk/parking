@@ -3,17 +3,18 @@ $coloe-light: #fafafa;
 
 @mixin dark-theme {
     background-color: $color-dark;
-    color: white;  
+    color: white;
 }
+
 
 @mixin light-theme {
     background-color: $coloe-light;
-    color: black; 
+    color: black;
 }
 
 .theme-container {
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;
 }
 
 .theme--icon {
@@ -26,9 +27,10 @@ $coloe-light: #fafafa;
 }
 
 .theme__light {
-  @include light-theme
+  @include light-theme;
 }
 
 .moon {
   fill: $coloe-light;
 }
+  
