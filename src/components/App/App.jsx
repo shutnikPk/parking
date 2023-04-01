@@ -2,6 +2,7 @@ import './App.sass'
 import React, { useState } from 'react';
 import Sun from './sun.svg'
 import Moon from './half-moon.svg'
+import Test from '../Test/Test';
 
 const theme = localStorage.getItem('isLightTheme') === null ?
     true : JSON.parse(localStorage.getItem('isLightTheme'))
@@ -23,7 +24,7 @@ function App() {
                 type='checkbox'
                 onChange={onChangeTheme}>
             </input>
-            <p>Hello World!</p>
+            <Test />
         </div>
     );
 }
