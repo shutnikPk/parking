@@ -11,13 +11,24 @@ describe('App', () => {
 
 describe('events', () => {
     it('checkbox click', () => {
-        const handleChange = jest.fn()
         render(<App />)
         const checkbox = screen.getByRole('checkbox')
         expect(checkbox).toBeChecked()
         expect(screen.getByText(/Good Morgin/i)).toBeInTheDocument()
         fireEvent.click(checkbox)
-        expect(handleChange).not.toBeCalled()
+        expect(checkbox).not.toBeChecked()
         expect(screen.getByText(/Good Night/i)).toBeInTheDocument()
+    })
+})
+
+describe('change theme', () => {
+    it('change background colors', () => {
+        render(<App />)
+        const container = screen.getByRole('container')
+        const checkbox = screen.getByRole('checkbox')
+        expect(container.classList.contains('theme__light'))
+        fireEvent.click(checkbox)
+        expect(container.classList.contains('theme__light'))
+
     })
 })

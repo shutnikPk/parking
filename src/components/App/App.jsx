@@ -16,7 +16,7 @@ function App() {
     }
 
     return (
-        <div className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
+        <div role='container' className={`theme-container theme__${isLightTheme ? 'light' : 'dark'}`} >
             {isLightTheme ? 'Good Morgin' : 'Good Night'}
             {isLightTheme ? <Sun className='theme--icon' /> : <Moon className='theme--icon moon' />}
             <input checked={isLightTheme}
