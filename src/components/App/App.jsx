@@ -1,4 +1,4 @@
-import './App.scss'
+import './App.sass'
 import React, { useState } from 'react';
 import Sun from './sun.svg'
 import Moon from './half-moon.svg'

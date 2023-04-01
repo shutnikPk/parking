@@ -1,0 +1,33 @@
+$color-dark: #525DAB
+$coloe-light: #fafafa
+
+@mixin dark-theme 
+    background-color: $color-dark
+    color: white  
+
+
+@mixin light-theme 
+    background-color: $coloe-light
+    color: black 
+
+
+.theme-container 
+    width: 100vw
+    height: 100vh    
+
+
+.theme--icon 
+  display: inline-block
+  width: 18px
+
+
+.theme__dark 
+  @include dark-theme
+
+
+.theme__light 
+  @include light-theme
+
+
+.moon 
+  fill: $coloe-light
