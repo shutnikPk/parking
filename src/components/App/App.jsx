@@ -6,7 +6,7 @@ import Moon from './half-moon.svg'
 const theme = localStorage.getItem('isLightTheme') === null ?
     true : JSON.parse(localStorage.getItem('isLightTheme'))
 
-export default () => {
+function App() {
 
     const [isLightTheme, setIsLightTheme] = useState(theme)
 
@@ -27,3 +27,5 @@ export default () => {
         </div>
     );
 }
+
+export default App
