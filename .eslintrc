@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "react-app/jest"],
+  "extends": ["airbnb", "react-app/jest", "prettier"],
   "rules": {
     "linebreak-style": 0,
     "global-require": 0,
@@ -14,6 +14,7 @@
   },
   "plugins": ["testing-library"],
   "globals": {
+    "document": true,
     "localStorage": true
   }
 }
